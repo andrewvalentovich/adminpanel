@@ -108,12 +108,12 @@ Route::group([
     Route::group([
 
         'namespace' => 'User',
-        'prefix' => 'user'
+        'prefix' => 'users'
 
     ], function () {
 
-            Route::get('/', [\App\Http\Controllers\Admin\User\IndexController::class, '__invoke'])->name('admin.user.index');
-            Route::get('/create', [\App\Http\Controllers\Admin\User\CreateController::class, '__invoke'])->name('admin.user.create');
+            Route::get('/', [\App\Http\Controllers\Admin\User\IndexController::class, '__invoke'])->name('admin.users.index');
+            Route::get('/create', [\App\Http\Controllers\Admin\User\CreateController::class, '__invoke'])->name('admin.users.create');
             Route::post('/', [\App\Http\Controllers\Admin\User\StoreController::class, '__invoke'])->name('admin.user.store');
             Route::get('/{user}', [\App\Http\Controllers\Admin\User\ShowController::class, '__invoke'])->name('admin.user.show');
             Route::get('/{user}/edit', [\App\Http\Controllers\Admin\User\EditController::class, '__invoke'])->name('admin.user.edit');

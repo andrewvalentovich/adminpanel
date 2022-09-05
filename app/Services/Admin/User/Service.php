@@ -14,7 +14,7 @@ class Service
         $roles = $data['roles'];
         unset($data['roles']);
 
-        $data['profileImage'] = Storage::put('/upload/images', $data['profileImage']);
+        $data['profileImage'] = Storage::put('/uploads/images/', $data['profileImage']);
         $data['password'] = encrypt($data['password']);
 
         $user = User::create($data);
@@ -26,7 +26,8 @@ class Service
         $roles = $data['roles'];
         unset($data['roles']);
 
-        $data['profileImage'] = Storage::put('/upload/images', $data['profileImage']);
+        if (array_key_exists('profileImage', $data))
+            $data['profileImage'] = Storage::put('/uploads/images/', $data['profileImage']);
 
         $user->update($data);
         $user->roles()->sync($roles);

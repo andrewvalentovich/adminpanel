@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="{{ url('storage/app/'.$user->profileImage) }}" alt="Admin" class="rounded-circle" width="150">
+                            <img src="{{ asset('storage').'/'.$user->profileImage }}" alt="profileImage" class="rounded-circle" width="150">
                             <div class="mt-3">
                                 <h4>{{ $user->name }}</h4>
                                 <p class="text-secondary mb-1">{{ $user->email }}</p>
@@ -55,9 +55,13 @@
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 d-flex">
                                 <a class="btn btn-primary" href="{{ route('admin.user.edit', ['user' => $user->id]) }}">Edit</a>
-                                <a class="btn btn-danger" href="{{ route('admin.user.delete', ['user' => $user->id]) }}">Delete</a>
+                                <form action="{{ route('admin.user.delete', ['user' => $user]) }}" method="post" class="mx-1">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="submit" value="Delete" class="btn btn-danger">
+                                </form>
                             </div>
                         </div>
                     </div>

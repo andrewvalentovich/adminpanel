@@ -16,7 +16,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'profileImage' => './storage/app/upload/images/placido-domingo.jpg',
+            'profileImage' => 'uploads/images//0nU72irnfGBYN00oBR6vrrHO0MkaYNIN6Jhambm5.jpg',
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'phone' => $this->faker->phoneNumber(),

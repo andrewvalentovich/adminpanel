@@ -296,7 +296,7 @@
             </div>
 
             <!-- Sidebar Menu -->
-            @include('includes.admin.sidebar')
+            @include('includes.admin.sidebarv')
             <!-- /.sidebar-menu -->
         </div>
         <!-- /.sidebar -->
